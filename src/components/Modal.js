@@ -2,16 +2,22 @@ import React from "react";
 
 function Modal({ setModalData, modalData }) {
   const closeModel = () => {
-    setModalData({ text: "", title: "", toggle: false });
+    setModalData({ text: "", title: "", toggle: false, Component: null });
   };
-
+  const { Component } = modalData;
   const dataArray = modalData.text.split("\n");
-
   return (
-    <div className="fixed z-50 inset-0 flex justify-center items-center w-full p-4 overflow-x-hidden overflow-y-auto h-full shadow-md">
+    <div
+      className={`fixed z-50 inset-0 flex justify-center items-${modalData.align} w-full p-2 md:p-4 overflow-x-hidden overflow-y-auto h-full shadow-md`}
+    >
       {/* <div className="absolute top-0 left-0 w-full h-full bg-black opacity-50"></div> */}
-      <div className="relative w-full max-w-md">
-        <div className="relative bg-primary_purple_200 rounded-lg shadow dark:bg-primary_purple_200">
+      <div
+        className={`relative w-full ${
+          modalData.details ? "max-w-2xl" : "max-w-md"
+        } m-0 md:m-8`}
+      >
+        {/* <div className={`relative w-full max-w-2 m-0 md:m-8`}> */}
+        <div className="relative bg-white rounded-lg shadow">
           <div className="flex items-center justify-between p-4 border-b rounded-t dark:border-gray-600">
             <h3 className="text-xl font-medium text-black dark:text-black">
               {modalData.title}
@@ -53,6 +59,8 @@ function Modal({ setModalData, modalData }) {
               );
             })}
           </div>
+
+          {Component && <Component />}
 
           {/* <div className="flex items-center p-4 border-t border-gray-200 rounded-b dark:border-gray-600">
             <button

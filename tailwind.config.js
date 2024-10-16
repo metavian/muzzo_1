@@ -6,7 +6,7 @@ module.exports = {
       colors: {
         primary_purple: "var(--primary-purple)",
         primary_blue: "var(--primary-blue)",
-        primary_purple_200: "var(--primary-purple-200)",
+        primary_sky_blue: "var(--primary-sky-blue)",
       },
     },
   },

@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 :root {
-  --primary-purple: #02fefe;
-  --primary-purple-200: #89ffff;
+  --primary-purple: #663d95;
+  --primary-sky-blue: #bfefef;
   --primary-blue: #0302ff;
 }
 
@@ -20,4 +20,8 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+.accordion-content {
+  transition: max-height 0.3s ease-out, padding 0.3s ease;
 }

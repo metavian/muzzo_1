@@ -5,20 +5,27 @@ import Camera from "./images/camera.png";
 import Shield from "./images/shield.png";
 import Camera_d from "./images/camera_d.png";
 import Modal from "./components/Modal";
+import TextImage from "./images/Text.png";
+import Accordion from "./components/Accordian";
 
 function App() {
   const [modalData, setModalData] = useState({
     title: "",
     text: "Some random text ",
     toggle: false,
+    Component: null,
+    align: "center",
+    details: false,
   });
 
-  const modelDataChange = (title, text) => {
-    console.log("clicked");
+  const modelDataChange = (title, text, Component, align, details) => {
     setModalData({
       title: title,
       text: text,
       toggle: true,
+      Component: Component,
+      align,
+      details,
     });
   };
 
@@ -28,48 +35,71 @@ function App() {
   const text2 = " Mobile : 98208 10222 \n Email : support@xaansa.com";
   return (
     <div className="relative">
-      <div className="flex justify-center items-center flex-col h-screen bg-primary_purple">
-        <img width={130} src={HeadetImage} alt="heaset image" />
-        <h1 className="text-2xl text-primary_blue">COMING SOON ! </h1>
-        <p className="text-md text-primary_blue mt-2 px-3 text-center py-2">
+      <div className="flex justify-center items-center flex-col h-screen bg-primary_sky_blue">
+        <img width={185} src={HeadetImage} alt="heaset" />
+        <h1 className="text-2xl text-primary_purple py-6">COMING SOON ! </h1>
+        <p className="text-md text-primary_purple px-3 text-center">
           A Revolutionary Media Redistribution Platform
         </p>
-        <div className="flex items-center gap-3 my-2">
+        <div className="flex items-center gap-5 py-3">
           <img
-            width={30}
-            src={Music}
-            alt="music image"
-            className="cursor-pointer"
-          />
-          <img
-            width={30}
+            width={40}
             src={Camera_d}
-            alt="camera_d image"
+            alt="camera_d"
             className="cursor-pointer"
           />
           <img
-            width={30}
+            width={40}
             src={Shield}
-            alt="shield image"
+            alt="shield"
             className="cursor-pointer"
           />
+          <img width={40} src={Music} alt="music" className="cursor-pointer" />
           <img
-            width={30}
+            width={40}
             src={Camera}
-            alt="camera image"
+            alt="camera"
             className="cursor-pointer"
           />
         </div>
-        <p className="text-md text-black">
+        <div className="py-6 text-center">
+          <img
+            width={200}
+            src={TextImage}
+            alt="Text"
+            className="cursor-pointer"
+          />
+        </div>
+        <p className="text-lg text-black mt-4">
           For{" "}
           <span className="text-primary_blue underline underline-offset-2 cursor-pointer">
-            <a onClick={() => modelDataChange("More Details", text1)}>
+            <a
+              onClick={() =>
+                modelDataChange(
+                  "More Details",
+                  text1,
+                  Accordion,
+                  "start",
+                  true
+                )
+              }
+            >
               more
             </a>
           </span>{" "}
           details please{" "}
           <span className="text-primary_blue underline underline-offset-2 cursor-pointer">
-            <a onClick={() => modelDataChange("Contact Us", text2)}>
+            <a
+              onClick={() =>
+                modelDataChange(
+                  "Contact Us",
+                  text2,
+                  null,
+                  "center",
+                  false
+                )
+              }
+            >
               contact
             </a>
           </span>
