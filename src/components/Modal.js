@@ -14,11 +14,15 @@ function Modal({ setModalData, modalData }) {
       <div
         className={`relative w-full ${
           modalData.details ? "max-w-2xl" : "max-w-md"
-        } m-0 md:m-8`}
+        } m-0 md:m-8 h-fit`}
       >
         {/* <div className={`relative w-full max-w-2 m-0 md:m-8`}> */}
-        <div className="relative bg-white rounded-lg shadow">
-          <div className="flex items-center justify-between p-4 border-b rounded-t dark:border-gray-600">
+        <div
+          className={`relative bg-white rounded-lg shadow  ${
+            modalData.details ? "h-[811px]" : ""
+          }  overflow-y-scroll no-scrollbar`}
+        >
+          <div className="flex items-center sticky top-0 bg-white justify-between p-4 border-b rounded-t dark:border-gray-600">
             <h3 className="text-xl font-medium text-black dark:text-black">
               {modalData.title}
             </h3>
@@ -51,11 +55,10 @@ function Modal({ setModalData, modalData }) {
             {dataArray.map((data, i) => {
               return (
                 <p
+                  dangerouslySetInnerHTML={{ __html: data }}
                   key={i}
-                  className="text-base leading-relaxed text-black dark:text-black"
-                >
-                  {data}
-                </p>
+                  className="text-lg leading-relaxed text-black dark:text-black"
+                ></p>
               );
             })}
           </div>

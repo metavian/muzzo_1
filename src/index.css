@@ -2,6 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
+/* to hide scrollbar */
+@layer utilities {
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+}
+
 :root {
   --primary-purple: #663d95;
   --primary-sky-blue: #bfefef;
@@ -24,4 +37,9 @@ code {
 
 .accordion-content {
   transition: max-height 0.3s ease-out, padding 0.3s ease;
+}
+
+.modal_container {
+  max-width: 772px;
+  overflow-y: scroll;
 }
